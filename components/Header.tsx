@@ -50,7 +50,7 @@ export default function Header() {
                     stroke="currentColor"
                     strokeWidth="1"
                   />
-                </g> 
+                </g>
               </svg>
             </div>
             <div>
@@ -62,16 +62,16 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center  md:gap-2">
           {navigationItems.map((item) => {
             const isActive = pathname === item.href;
 
             return (
-              <div key={item.name} className="relative">
+              <div key={item.name} className="relative ">
                 {item.hasDropdown ? (
                   <button
                     onClick={() => handleNavClick(item.name)}
-                    className={`flex items-center space-x-1 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
+                    className={`flex items-center px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
                       isActive
                         ? "bg-amber-100 text-amber-800 border border-amber-200"
                         : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
@@ -88,9 +88,9 @@ export default function Header() {
                   <Link href={item.href}>
                     <button
                       onClick={() => handleNavClick(item.name)}
-                      className={`flex items-center space-x-1 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
+                      className={`flex items-center  px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
                         isActive
-                          ? "bg-amber-100 text-amber-800 border border-amber-200"
+                          ? "bg-[var(--button-secondery)] "
                           : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                       }`}
                     >

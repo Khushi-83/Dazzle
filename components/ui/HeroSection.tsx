@@ -9,18 +9,21 @@ const HeroSection = () => {
   const buttonsRef = useRef(null);
 
   useEffect(() => {
-    // Animate text
-    gsap.from(textRef.current, {
-      y: 200, // start 50px below
-      opacity: 0,
+    // Set initial state (prevents hydration mismatch)
+    gsap.set(textRef.current, { y: 200, opacity: 0 });
+    gsap.set(buttonsRef.current, { y: 200, opacity: 0 });
+
+    // Animate after
+    gsap.to(textRef.current, {
+      y: 0,
+      opacity: 1,
       duration: 1,
       ease: "power3.out",
     });
 
-    // Animate buttons with slight delay
-    gsap.from(buttonsRef.current, {
-      y: 200,
-      opacity: 0,
+    gsap.to(buttonsRef.current, {
+      y: 0,
+      opacity: 1,
       duration: 1,
       ease: "power3.out",
       delay: 0.5,
