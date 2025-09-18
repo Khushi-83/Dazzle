@@ -110,7 +110,7 @@ const ServicesInfoSection = () => {
                 key={index}
                 className="stepsButtonHover px-5 py-4 border-1 rounded-md"
               >
-                <span>{index + 1}</span> <span>Consultation & Assesment</span>
+                <span>{index + 1}</span> <span>{item}</span>
               </button>
             ))}
           </div>
