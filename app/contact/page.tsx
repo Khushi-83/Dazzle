@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { Phone, Mail, MapPin } from "lucide-react"
-import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
-import { Textarea } from "../components/ui/textarea"
+import React, { useState } from "react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,16 +21,16 @@ export default function ContactPage() {
     completionDate: "",
     hearAbout: "",
     message: "",
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+  };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   return (
     <div className="min-h-screen bg-stone-50 pt-8">
@@ -47,28 +47,39 @@ export default function ContactPage() {
 
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-stone-800 mb-4">Contact Us</h2>
+                <h2 className="text-2xl font-bold text-stone-800 mb-4">
+                  Contact Us
+                </h2>
                 <p className="text-stone-600 leading-relaxed">
-                  Your perfect project won&apos;t build itself but we can help! Contact us today and let&apos;s bring your vision to life.
+                  Your perfect project won&apos;t build itself but we can help!
+                  Contact us today and let&apos;s bring your vision to life.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-stone-600" />
-                  <span className="text-stone-800 font-medium">(555) 123-4567</span>
+                  <span className="text-stone-800 font-medium">
+                    (555) 123-4567
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-stone-600" />
-                  <span className="text-stone-800 font-medium">(555) 124-2784</span>
+                  <span className="text-stone-800 font-medium">
+                    (555) 124-2784
+                  </span>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-stone-600" />
                 <div className="space-y-1">
-                  <div className="text-stone-800 font-medium">Farhan@dazzledesign.com</div>
-                  <div className="text-stone-800 font-medium">realtywithsarah@gmail.com</div>
+                  <div className="text-stone-800 font-medium">
+                    Farhan@dazzledesign.com
+                  </div>
+                  <div className="text-stone-800 font-medium">
+                    realtywithsarah@gmail.com
+                  </div>
                 </div>
               </div>
 
@@ -82,14 +93,16 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-stone-800">Social Media</h3>
+                <h3 className="text-lg font-semibold text-stone-800">
+                  Social Media
+                </h3>
                 <div className="space-y-2 text-stone-600">
                   <div>X •</div>
-                  <div>LinkedIn {'>>'}</div>
-                  <div>Facebook {'>>'}</div>
-                  <div>Instagram {'>>'}</div>
-                  <div>Youtube {'>>'}</div>
-                  <div>Pinterest {'>>'}</div>
+                  <div>LinkedIn {">>"}</div>
+                  <div>Facebook {">>"}</div>
+                  <div>Instagram {">>"}</div>
+                  <div>Youtube {">>"}</div>
+                  <div>Pinterest {">>"}</div>
                 </div>
               </div>
             </div>
@@ -99,50 +112,77 @@ export default function ContactPage() {
           <div className="bg-white shadow-lg rounded-lg">
             <div className="p-6">
               <p className="text-stone-600 leading-relaxed mb-6">
-                Got big plans but not sure where to start? Don&apos;t worry, just share what&apos;s on your mind, and we&apos;ll handle the rest!
+                Got big plans but not sure where to start? Don&apos;t worry,
+                just share what&apos;s on your mind, and we&apos;ll handle the
+                rest!
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-stone-700 font-medium text-sm">Name</label>
+                    <label
+                      htmlFor="name"
+                      className="text-stone-700 font-medium text-sm"
+                    >
+                      Name
+                    </label>
                     <Input
                       id="name"
                       placeholder="Your name"
                       value={formData.name}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("name", e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange("name", e.target.value)
+                      }
                       className="bg-[#F5F1ED] border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="text-stone-700 font-medium text-sm">Phone</label>
+                    <label
+                      htmlFor="phone"
+                      className="text-stone-700 font-medium text-sm"
+                    >
+                      Phone
+                    </label>
                     <Input
                       id="phone"
                       placeholder="(555) 123-4567"
                       value={formData.phone}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("phone", e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange("phone", e.target.value)
+                      }
                       className="bg-[#F5F1ED] border-gray-200"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-stone-700 font-medium text-sm">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="text-stone-700 font-medium text-sm"
+                  >
+                    Email
+                  </label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="your.email@example.com"
                     value={formData.email}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("email", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      handleInputChange("email", e.target.value)
+                    }
                     className="bg-[#F5F1ED] border-gray-200"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-stone-700 font-medium text-sm">Preferred Contact Method</label>
-                  <select 
+                  <label className="text-stone-700 font-medium text-sm">
+                    Preferred Contact Method
+                  </label>
+                  <select
                     className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange("preferredContact", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange("preferredContact", e.target.value)
+                    }
                     value={formData.preferredContact}
                     aria-label="Preferred Contact Method"
                   >
@@ -154,10 +194,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-stone-700 font-medium text-sm">User Type</label>
-                  <select 
+                  <label className="text-stone-700 font-medium text-sm">
+                    User Type
+                  </label>
+                  <select
                     className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange("userType", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange("userType", e.target.value)
+                    }
                     value={formData.userType}
                     aria-label="User Type"
                   >
@@ -170,10 +214,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-stone-700 font-medium text-sm">Property Type</label>
-                  <select 
+                  <label className="text-stone-700 font-medium text-sm">
+                    Property Type
+                  </label>
+                  <select
                     className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange("propertyType", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange("propertyType", e.target.value)
+                    }
                     value={formData.propertyType}
                     aria-label="Property Type"
                   >
@@ -186,34 +234,55 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="propertyAddress" className="text-stone-700 font-medium text-sm">Property Address</label>
+                  <label
+                    htmlFor="propertyAddress"
+                    className="text-stone-700 font-medium text-sm"
+                  >
+                    Property Address
+                  </label>
                   <Input
                     id="propertyAddress"
                     placeholder="Enter your property address"
                     value={formData.propertyAddress}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("propertyAddress", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      handleInputChange("propertyAddress", e.target.value)
+                    }
                     className="bg-[#F5F1ED] border-gray-200"
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="budget" className="text-stone-700 font-medium text-sm">Budget</label>
+                    <label
+                      htmlFor="budget"
+                      className="text-stone-700 font-medium text-sm"
+                    >
+                      Budget
+                    </label>
                     <Input
                       id="budget"
                       placeholder="Enter your budget"
                       value={formData.budget}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("budget", e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange("budget", e.target.value)
+                      }
                       className="bg-[#F5F1ED] border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="timeline" className="text-stone-700 font-medium text-sm">Timeline</label>
+                    <label
+                      htmlFor="timeline"
+                      className="text-stone-700 font-medium text-sm"
+                    >
+                      Timeline
+                    </label>
                     <Input
                       id="timeline"
                       placeholder="e.g., 3 months"
                       value={formData.timeline}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("timeline", e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange("timeline", e.target.value)
+                      }
                       className="bg-[#F5F1ED] border-gray-200"
                     />
                   </div>
@@ -221,32 +290,50 @@ export default function ContactPage() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="startDate" className="text-stone-700 font-medium text-sm">Preferred Start Date</label>
+                    <label
+                      htmlFor="startDate"
+                      className="text-stone-700 font-medium text-sm"
+                    >
+                      Preferred Start Date
+                    </label>
                     <Input
                       id="startDate"
                       type="date"
                       value={formData.startDate}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("startDate", e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange("startDate", e.target.value)
+                      }
                       className="bg-[#F5F1ED] border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="completionDate" className="text-stone-700 font-medium text-sm">Desired Completion Date</label>
+                    <label
+                      htmlFor="completionDate"
+                      className="text-stone-700 font-medium text-sm"
+                    >
+                      Desired Completion Date
+                    </label>
                     <Input
                       id="completionDate"
                       type="date"
                       value={formData.completionDate}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("completionDate", e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange("completionDate", e.target.value)
+                      }
                       className="bg-[#F5F1ED] border-gray-200"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-stone-700 font-medium text-sm">How Did You Hear About Us</label>
-                  <select 
+                  <label className="text-stone-700 font-medium text-sm">
+                    How Did You Hear About Us
+                  </label>
+                  <select
                     className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleInputChange("hearAbout", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      handleInputChange("hearAbout", e.target.value)
+                    }
                     value={formData.hearAbout}
                     aria-label="How Did You Hear About Us"
                   >
@@ -260,17 +347,27 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-stone-700 font-medium text-sm">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="text-stone-700 font-medium text-sm"
+                  >
+                    Message
+                  </label>
                   <Textarea
                     id="message"
                     placeholder="Write your message here..."
                     value={formData.message}
-                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleInputChange("message", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                      handleInputChange("message", e.target.value)
+                    }
                     className="bg-stone-50 border-stone-200 min-h-[120px]"
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-stone-800 hover:bg-stone-700 text-white py-3 text-lg font-medium">
+                <Button
+                  type="submit"
+                  className="w-full bg-stone-800 hover:bg-stone-700 text-white py-3 text-lg font-medium"
+                >
                   Request Free Estimate
                 </Button>
               </form>
@@ -294,5 +391,5 @@ export default function ContactPage() {
         />
       </div>
     </div>
-  )
+  );
 }

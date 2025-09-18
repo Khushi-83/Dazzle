@@ -28,7 +28,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white px-6 py-4 border-b-1 border-stone-200">
+    <header className="w-full bg-white px-6 py-2 border-b-1 border-stone-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -88,7 +88,7 @@ export default function Header() {
                   <Link href={item.href}>
                     <button
                       onClick={() => handleNavClick(item.name)}
-                      className={`flex items-center space-x-1 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
+                      className={`flex items-center space-x-1 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
                         isActive
                           ? "bg-amber-100 text-amber-800 border border-amber-200"
                           : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
@@ -106,7 +106,7 @@ export default function Header() {
         </nav>
 
         {/* Book Now Button */}
-        <button className="flex p-1 h-12 w-auto min-w-[160px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
+        <button className="flex p-1 h-10 w-auto min-w-[160px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
           <span className="arrow bg-[var(--button-primary)] inline-flex h-full w-1/4 rounded-sm justify-center items-center">
             <ChevronsRight size={20} color="#ffffff" />
           </span>
