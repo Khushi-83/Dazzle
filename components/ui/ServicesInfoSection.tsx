@@ -131,19 +131,19 @@ const ServicesInfoSection = () => {
                   src={item.img}
                   alt="Consultation scene"
                   fill
-                  className="object-cover"
+                  className="object-cover rounded-md"
                 />
                 {/* Step Number and Title */}
-                <div className="absolute bottom-4 left-4 text-white py-2 backdrop-blur-sm w-100 rounded-lg px-5">
+                <div className="absolute bottom-4 left-4 text-white py-2 backdrop-blur-sm w-100 rounded-lg px-5 flex gap-2">
                   <div className="text-sm font-medium opacity-90 mb-1">
                     STEP
                   </div>
-                  <div className="flex items-start gap-3 ">
+                  <div className="flex  items-start gap-3 ">
                     <div className="text-6xl font-bold leading-none interFont">
                       0{index + 1}
                     </div>
-                    <div className="text-xl pb-2 interFont ">
-                      <span className="border-t-2 border-t-white w-full inline-block"></span>
+                    <div className="text-xl pb-2 interFont mb-auto flex flex-col gap-2 ">
+                      <span className="border-t-1 border-t-white w-full inline-block"></span>
                       {item.title}
                     </div>
                   </div>
