@@ -46,7 +46,7 @@ export default function Header() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-800 tracking-wide">DAZZLE</h1>
-              <p className="text-xs text-gray-500 -mt-1">by natural nail solutions</p>
+
             </div>
           </div>
         </div>
@@ -90,22 +90,7 @@ export default function Header() {
                 )}
                 
                 {/* Services dropdown */}
-                {item.hasDropdown && isServicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                      Nail Care
-                    </a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                      Manicure
-                    </a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                      Pedicure
-                    </a>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                      Nail Art
-                    </a>
-                  </div>
-                )}
+                
               </div>
             );
           })}
