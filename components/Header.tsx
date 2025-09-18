@@ -50,7 +50,7 @@ export default function Header() {
                     stroke="currentColor"
                     strokeWidth="1"
                   />
-                </g>
+                </g> 
               </svg>
             </div>
             <div>
