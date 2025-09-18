@@ -1,3 +1,8 @@
+'use client'
+
+import React, { useState } from "react"
+import { Linkedin, Facebook, Twitter } from "lucide-react"
+
 export default function MeetTheTeamPage() {
   const teamMembers = [
     {
@@ -69,16 +74,38 @@ export default function MeetTheTeamPage() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {teamMembers.map((member, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
-                {/* Profile Image */}
-                <div className="w-48 h-48 mb-6">
-                  <div className="w-full h-full bg-gradient-to-br from-amber-100 to-orange-200 rounded-lg flex items-center justify-center">
-                    <span className="text-4xl">👤</span>
+              <div key={index} className="flex items-start gap-6">
+                {/* Left Column - Profile Image, Name, Title, Social Icons */}
+                <div className="w-32 flex-shrink-0">
+                  {/* Profile Image */}
+                  <div className="w-32 h-32 mb-4">
+                    <div className="w-full h-full bg-gradient-to-br from-amber-100 to-orange-200 rounded-lg flex items-center justify-center">
+                      <span className="text-3xl">👤</span>
+                    </div>
+                  </div>
+                  
+                  {/* Name, Title and Social Icons */}
+                  <div className="text-center mb-4">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">{member.name}</h3>
+                    <p className="text-gray-600 text-sm mb-3">{member.title}</p>
+                    
+                    {/* Social Icons - Right of Name */}
+                    <div className="flex justify-center space-x-3 mt-3">
+                      <a href="#" className="w-8 h-8 border border-gray-400 rounded flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors" title="LinkedIn">
+                        <Linkedin className="w-4 h-4 text-gray-800" />
+                      </a>
+                      <a href="#" className="w-8 h-8 border border-gray-400 rounded flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors" title="Facebook">
+                        <Facebook className="w-4 h-4 text-gray-800" />
+                      </a>
+                      <a href="#" className="w-8 h-8 border border-gray-400 rounded flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors" title="X (Twitter)">
+                        <Twitter className="w-4 h-4 text-gray-800" />
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Achievements List */}
-                <div className="text-left mb-6 max-w-md">
+                {/* Right Column - Achievements List */}
+                <div className="flex-1">
                   <ul className="space-y-2">
                     {member.achievements.map((achievement, achievementIndex) => (
                       <li key={achievementIndex} className="flex items-start">
@@ -88,34 +115,15 @@ export default function MeetTheTeamPage() {
                     ))}
                   </ul>
                 </div>
-
-                {/* Name and Title */}
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-1">{member.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{member.title}</p>
-                  
-                  {/* Social Icons */}
-                  <div className="flex justify-center space-x-3">
-                    <button className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition-colors">
-                      <span className="text-gray-600 text-xs">📧</span>
-                    </button>
-                    <button className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition-colors">
-                      <span className="text-gray-600 text-xs">📞</span>
-                    </button>
-                    <button className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition-colors">
-                      <span className="text-gray-600 text-xs">🔗</span>
-                    </button>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Team Philosophy Section */}
-        <div className="bg-gray-800 text-white py-16 mt-16">
+        <div className="py-16 mt-16" style={{backgroundColor: '#3A2D28'}}>
           <div className="max-w-4xl mx-auto text-center px-6">
-            <h2 className="text-4xl font-bold mb-8">Team Philosophy</h2>
+            <h2 className="text-4xl font-bold mb-8 text-white">Team Philosophy</h2>
             <p className="text-lg leading-relaxed text-gray-300">
               Quality, experience, real estate market knowledge, expert staging strategies, attention to detail, 
               exceptional customer service for homeowners, realtors, investors.
@@ -151,10 +159,7 @@ export default function MeetTheTeamPage() {
             </div>
           </div>
         </div>
-
-        
-          </div>
-        </div>
-   
-  );
+      </div>
+    </div>
+  )
 }
