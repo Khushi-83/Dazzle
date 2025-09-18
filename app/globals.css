@@ -1,26 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #21201b;
+  --button-primary: #3a2d28;
+  --button-secondery: #cbad8d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Hedvig Letters Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* second-section bg */
+.second-section {
+  background-image: url("/images/2nd sec.png");
+  background-size: 1500px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.interFont {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.7;
+}
+
+.stepsButtonHover {
+  min-width: 50px;
+  max-width: 150px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  gap: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+.stepsButtonHover span:nth-child(1) {
+  white-space: nowrap;
+  display: inline-block;
+  margin: auto;
+}
+
+.stepsButtonHover span:nth-child(2) {
+  display: inline-block;
+  max-width: 0; /* start hidden */
+  overflow: hidden; /* hide text until expanded */
+  transition: max-width 0.5s ease-in-out;
+}
+
+.stepsButtonHover:hover span:nth-child(2) {
+  white-space: wrap;
+  max-width: 200px; /* expand smoothly */
 }

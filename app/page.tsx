@@ -1,10 +1,10 @@
-import HeroSection from "@/app/components/ui/HeroSection";
-import HomeContact from "@/app/components/ui/HomeContact";
-import HomeGallery from "@/app/components/ui/HomeGallery";
-import InventorySection from "@/app/components/ui/InventorySection";
-import ServicesInfoSection from "@/app/components/ui/ServicesInfoSection";
-import TestimonialSection from "@/app/components/ui/TestimonialSection";
-import WelcomeSection from "@/app/components/ui/WelcomeSection";
+import HeroSection from "@/components/ui/HeroSection";
+import InventorySection from "@/components/ui/InventorySection";
+import ServicesInfoSection from "@/components/ui/ServicesInfoSection";
+import WelcomeSection from "@/components/ui/WelcomeSection";
+import TestimonialSection from "@/components/ui/TestimonialSection";
+import HomeGallery from "@/components/ui/HomeGallery";
+import HomeContact from "@/components/ui/HomeContact";
 
 export default function Home() {
   return (
