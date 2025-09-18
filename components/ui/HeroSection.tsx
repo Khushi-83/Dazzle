@@ -32,7 +32,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="min-h-[150vh] md:min-h-[200vh] flex justify-center py-20 relative ">
+    <div className="min-h-[150vh] md:min-h-[130vh] flex justify-center  relative py-20">
       <div>
         <h1 ref={textRef} className="font-medium text-7xl space-x-0.5">
           Style. Staged. Sold
@@ -57,13 +57,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="bg-image absolute w-full bottom-0 left-0">
-        <Image
-          src="/images/hero-image.png"
-          alt="hero-mage"
-          width={1000}
-          height={1000}
-          className="w-full h-full"
+      <div className=" absolute w-full h-full top-0 left-0 -z-1">
+        <video
+          className="h-full w-full object-cover"
+          src="/videos/hero-video.mp4"
+          autoPlay
+          muted
+          loop
         />
       </div>
     </div>
