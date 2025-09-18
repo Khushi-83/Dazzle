@@ -19,10 +19,10 @@ const TestimonialSecton = () => {
 
         {/* Testimonial Quote */}
         <blockquote className="text-white text-lg leading-relaxed mb-8 font-light">
-          "We came in with a Pinterest board full of ideas and left with home of
+          We came in with a Pinterest board full of ideas and left with home of
           our dreams! The team made everything so easy, listening to every
           little detail and turning our scattered thoughts into something
-          magical."
+          magical.
         </blockquote>
 
         {/* Client Info */}
