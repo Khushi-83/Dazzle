@@ -67,3 +67,23 @@ body {
   white-space: wrap;
   max-width: 200px; /* expand smoothly */
 }
+
+.btn-hover {
+  overflow: hidden;
+  position: relative;
+  transition: 0.6s;
+}
+
+.btn-hover:hover span {
+  width: 100%;
+  transition: 0.6s;
+}
+
+.btn-hover:hover p {
+  position: absolute;
+  visibility: collapse;
+  transition: 0.6s;
+  z-index: -1;
+  width: fit-content;
+  text-wrap: nowrap;
+}
