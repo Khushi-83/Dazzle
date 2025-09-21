@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState } from "react"
-import { Linkedin, Facebook, Twitter } from "lucide-react"
+import React from "react";
+import { Linkedin, Facebook, Twitter } from "lucide-react";
 
 export default function MeetTheTeamPage() {
   const teamMembers = [
