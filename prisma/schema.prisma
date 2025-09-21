@@ -23,7 +23,7 @@ datasource db {
 model Blog{
   id String @id @default(uuid()) @db.Uuid
   title String @db.VarChar(150)
-  featuredImage String @db.VarChar(150)
+  featuredImage String @db.VarChar(300)
   content Json
   author String @default("Dazzle")
   createdAt DateTime @default(now())
