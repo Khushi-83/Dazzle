@@ -1,14 +1,14 @@
 "use client";
 
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronsRight } from "lucide-react";
 
 export default function HomeHeader() {
   const pathname = usePathname();
-  const [isServicesOpen, setIsServicesOpen] = useState<Boolean>(false);
-  const [isStickyNav, setStickyNav] = useState<Boolean>(false)
+  const [isServicesOpen, setIsServicesOpen] = useState<boolean>(false);
+  const [isStickyNav, setStickyNav] = useState<boolean>(false)
 
   const navigationItems = [
     { name: "Home", href: "/" },
