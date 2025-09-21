@@ -12,18 +12,49 @@ export async function GET() {
             if (!blogs) {
                   return NextResponse.json({})
             }
-           
+
             return NextResponse.json(blogs)
 
       } catch (error) {
             console.log(error)
+            return NextResponse.json({
+                  message: "something went wrong",
+                  success: false
+            }, {
+                  status: 500
+            })
       }
 }
 
 
 // add new blog
-export async function POST() {
-      return NextResponse.json({ name: "hello" })
+export async function POST(req: NextRequest) {
+
+      try {
+            const data = await req.json()
+            if (!data) {
+                  return NextResponse.json({
+                        message: "Please insert data",
+                        success: false
+                  }, {
+                        status: 401
+                  })
+            }
+            
+            await prisma.blog.create({
+                  data: data
+            })
+
+            return NextResponse.json({ message: "blog has been added" }, { status: 200 })
+      } catch (error) {
+            console.log(error)
+            return NextResponse.json({
+                  message: "something went wrong",
+                  success: false
+            }, {
+                  status: 500
+            })
+      }
 }
 
 
