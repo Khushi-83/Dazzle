@@ -26,7 +26,7 @@ type Blog = {
   id: string;
   title: string;
   featuredImage: string;
-  content: BlogContent;
+  content: object; // JSON type from Prisma
   author: string;
   createdAt: string;
   updatedAt: string;
@@ -184,7 +184,7 @@ export default function BlogDetailPage() {
 
       {/* Blog Content */}
       <article className="prose prose-lg max-w-none">
-        {renderContent(blog.content)}
+        {renderContent(blog.content as BlogContent)}
       </article>
     </main>
   );

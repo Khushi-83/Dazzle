@@ -10,7 +10,8 @@ type BlogCardProps = {
   featuredImage: string;
   author: string;
   createdAt: string;
-  content?: object;
+  updatedAt: string;
+  content: object;
 };
 
 export default function BlogCard({
@@ -29,6 +30,7 @@ export default function BlogCard({
       day: 'numeric'
     });
   };
+  
   return (
     <article className="flex flex-col md:flex-row border rounded-lg overflow-hidden mb-6 shadow-sm">
       <div className="bg-[#3a2f29] text-white p-6 md:w-1/2 flex flex-col justify-between">
