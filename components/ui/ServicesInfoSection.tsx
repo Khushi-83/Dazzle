@@ -98,7 +98,7 @@ const ServicesInfoSection = () => {
         <h2 className="services-heading text-6xl text-black">
           Services We Provide
         </h2>
-        <div className="mt-8 sticky top-0">
+        <div className="mt-8 sticky top-20">
           <p className="services-subtext interFont font-medium text-4xl mb-4">
             Let’s turn your big ideas into a masterpiece with a clear and fun
             process
@@ -122,7 +122,7 @@ const ServicesInfoSection = () => {
         <div className="flex items-center relative flex-col gap-10">
           {stepsData.map((item, index) => (
             <div
-              className="step-card bg-[#EEEAE5] rounded-lg overflow-hidden max-w-md p-2 sticky top-0"
+              className="step-card bg-[#EEEAE5] rounded-lg overflow-hidden max-w-md p-2 sticky top-20"
               key={index}
             >
               {/* Image Section with Overlay */}
