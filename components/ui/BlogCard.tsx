@@ -6,8 +6,6 @@ type BlogCardProps = {
   title: string;
   category: string;
   author: string;
-  location: string;
-  year: string;
   image?: string;
 };
 
@@ -15,8 +13,6 @@ export default function BlogCard({
   title,
   category,
   author,
-  location,
-  year,
   image,
 }: BlogCardProps) {
   return (

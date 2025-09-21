@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronsRight } from "lucide-react";
 
 export default function HomeHeader() {
   const pathname = usePathname();
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState<Boolean>(false);
+  const [isStickyNav, setStickyNav] = useState<Boolean>(false)
 
   const navigationItems = [
     { name: "Home", href: "/" },
@@ -27,13 +28,26 @@ export default function HomeHeader() {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setStickyNav(true);
+      } else {
+        setStickyNav(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="w-full absolute t-0  px-6 py-2 border-b-1 border-stone-200 z-50">
+    <header className={!isStickyNav ? "w-full absolute t-0  px-6 py-2 border-b-1 border-stone-200 z-50 bg-transparent h-16" : "bg-white min-h-16 fixed w-full px-6 py-4 z-50 transition-all ease-in-out duration-300 border"}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <div className="flex items-center space-x-2">
-            {/* Logo icon - stylized sunburst */}
+            {/* Logo icon */}
             <div className="w-8 h-8 relative">
               <svg viewBox="0 0 32 32" className="w-full h-full text-gray-800">
                 <g fill="currentColor">
@@ -91,15 +105,15 @@ export default function HomeHeader() {
                       className={`flex items-center  px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
                         isActive
                           ? "bg-[var(--button-secondery)] "
-                          : "mix-blend-difference hover:text-gray-900 hover:bg-gray-50"
+                        : " hover:text-gray-900 hover:bg-[var(--button-secondery)]/20"
                       }`}
                     >
-                      <span>{item.name}</span>
+                      <span className={isStickyNav ? "text-amber-900" : "text-white"}>{item.name}</span>
                     </button>
                   </Link>
                 )}
 
-                {/* Services dropdown */}
+
               </div>
             );
           })}
