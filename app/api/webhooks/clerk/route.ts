@@ -3,7 +3,11 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-// Allowed roles mapping
+type ClerkWebhookEvent = {
+    type: string;
+    data: any;
+};
+
 const CLERK_TO_PRISMA_ROLE: Record<string, "CUSTOMER" | "STAFF" | "ADMIN"> = {
     CUSTOMER: "CUSTOMER",
     STAFF: "STAFF",
@@ -12,13 +16,9 @@ const CLERK_TO_PRISMA_ROLE: Record<string, "CUSTOMER" | "STAFF" | "ADMIN"> = {
 
 export async function POST(req: Request) {
     const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
+    if (!WEBHOOK_SECRET) throw new Error("Missing CLERK_WEBHOOK_SECRET");
 
-    if (!WEBHOOK_SECRET) {
-        throw new Error("Missing CLERK_WEBHOOK_SECRET");
-    }
-
-    // Read headers synchronously
-    const headerPayload = headers();
+    const headerPayload = await headers();
     const svix_id = headerPayload.get("svix-id");
     const svix_timestamp = headerPayload.get("svix-timestamp");
     const svix_signature = headerPayload.get("svix-signature");
@@ -27,19 +27,18 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Missing svix headers" }, { status: 400 });
     }
 
-    // Grab request body
     const payload = await req.json();
     const body = JSON.stringify(payload);
 
     const wh = new Webhook(WEBHOOK_SECRET);
 
-    let evt;
+    let evt: ClerkWebhookEvent;
     try {
         evt = wh.verify(body, {
             "svix-id": svix_id,
             "svix-timestamp": svix_timestamp,
             "svix-signature": svix_signature,
-        });
+        }) as ClerkWebhookEvent; // ✅ cast to known type
     } catch (err) {
         console.error("❌ Webhook verification failed:", err);
         return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
@@ -49,10 +48,8 @@ export async function POST(req: Request) {
     const data = evt.data;
 
     try {
-        // Determine role from Clerk public metadata
         const roleFromClerk =
             (data.public_metadata?.role as "CUSTOMER" | "STAFF" | "ADMIN") || "CUSTOMER";
-
         const prismaRole = CLERK_TO_PRISMA_ROLE[roleFromClerk] || "CUSTOMER";
 
         if (eventType === "user.created") {
@@ -64,7 +61,6 @@ export async function POST(req: Request) {
                     role: prismaRole,
                 },
             });
-            console.log("✅ User created in DB:", data.id, "Role:", prismaRole);
         }
 
         if (eventType === "user.updated") {
@@ -82,14 +78,12 @@ export async function POST(req: Request) {
                     role: prismaRole,
                 },
             });
-            console.log("🔄 User upserted in DB:", data.id, "Role:", prismaRole);
         }
 
         if (eventType === "user.deleted") {
             await prisma.user.delete({
                 where: { clerkId: data.id },
             });
-            console.log("🗑️ User deleted from DB:", data.id);
         }
     } catch (err) {
         console.error("⚠️ Error syncing user:", err);

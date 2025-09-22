@@ -19,15 +19,17 @@ export const metadata: Metadata = {
   description: "Premium architectural staging and design services for luxury properties",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <div>
         <Header />
       </div>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
       <div>
         <Footer />
       </div>

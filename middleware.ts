@@ -17,9 +17,15 @@ export async function middleware(req: NextRequest) {
     let clerkId: string | null = null;
     try {
         const sessionData = JSON.parse(session);
-        clerkId = sessionData.clerkId;
+        clerkId = sessionData.clerkId ?? null;
     } catch (err) {
         console.error("Invalid session:", err);
+        url.pathname = "/sign-in";
+        return NextResponse.redirect(url);
+    }
+
+    // If clerkId is null, redirect
+    if (!clerkId) {
         url.pathname = "/sign-in";
         return NextResponse.redirect(url);
     }
@@ -30,13 +36,6 @@ export async function middleware(req: NextRequest) {
         url.pathname = "/sign-in";
         return NextResponse.redirect(url);
     }
-
-    // Role-based routing
-    if (req.nextUrl.pathname.startsWith("/admin") && user.role !== "ADMIN") {
-        url.pathname = "/unauthorized";
-        return NextResponse.redirect(url);
-    }
-
     if (req.nextUrl.pathname.startsWith("/storefront") && user.role === "ADMIN") {
         // Admins may access storefront too (optional)
     }
