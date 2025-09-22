@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
 import { ChevronsRight } from "lucide-react";
-import Image from "next/image";
 import { gsap } from "gsap";
 
 const HeroSection = () => {

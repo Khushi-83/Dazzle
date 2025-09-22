@@ -1,11 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import api from "@/lib/api";
 import BlogFilters from "@/components/ui/BlogFilters";
 import BlogCard from "@/components/ui/BlogCard";
 
+type Blog = {
+  id: string;
+  title: string;
+  featuredImage: string;
+  content: object;
+  author: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export default function BlogsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const filters: string[] = [
     "All",
@@ -15,14 +30,33 @@ export default function BlogsPage() {
     "Industry Insights",
   ];
 
-  const blogs = Array.from({ length: 8 }).map((_, i) => ({
-    title: "Turning Spaces into Stories: How We Create Meaningful Architecture",
-    category: "Commercial – Office",
-    author: `James Miller${i > 0 ? ` ${i + 1}` : ""}`,
-    location: "Central Business District",
-    year: String(2022 + (i % 3)),
-    image: "/blog-sample.jpg",
-  }));
+  // Fetch blogs from API using axios
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get('/blogs');
+        setBlogs(response.data);
+      } catch (err) {
+        if (axios.isAxiosError(err)) {
+          setError(err.response?.data?.message || err.message || 'Failed to fetch blogs');
+        } else {
+          setError('An unexpected error occurred');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  // Filter blogs based on active filter
+  const filteredBlogs = blogs.filter(() => {
+    if (activeFilter === "All") return true;
+    // You can add more filtering logic here based on your needs
+    return true;
+  });
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10">
@@ -34,14 +68,31 @@ export default function BlogsPage() {
         onFilterChange={setActiveFilter}
       />
 
-      {blogs.map((blog, index) => (
-        <BlogCard key={index} {...blog} />
-      ))}
+      {loading && (
+        <div className="text-center py-8">
+          <p className="text-gray-600">Loading blogs...</p>
+        </div>
+      )}
 
-      <p className="text-sm text-gray-500 mt-6">
-        NOTE: Place a sample image at <code>/public/blog-sample.jpg</code> so the
-        preview images render correctly.
-      </p>
+      {error && (
+        <div className="text-center py-8">
+          <p className="text-red-600">Error: {error}</p>
+        </div>
+      )}
+
+      {!loading && !error && filteredBlogs.length === 0 && (
+        <div className="text-center py-8">
+          <p className="text-gray-600">No blogs found.</p>
+        </div>
+      )}
+
+      {!loading && !error && filteredBlogs.length > 0 && (
+        <div className="space-y-6">
+          {filteredBlogs.map((blog) => (
+            <BlogCard key={blog.id} {...blog} />
+          ))}
+        </div>
+      )}
     </main>
   );
 }

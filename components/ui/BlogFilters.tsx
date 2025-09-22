@@ -22,7 +22,6 @@ export default function BlogFilters({
           key={filter}
           type="button"
           onClick={() => onFilterChange(filter)}
-          aria-pressed={activeFilter === filter}
           className={cn(
             "px-4 py-2 border rounded-md text-sm font-medium transition",
             activeFilter === filter

@@ -1,4 +1,5 @@
-import { Star } from "lucide-react"
+import { Star } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -146,10 +147,11 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
       className={`bg-[#F5F1ED] rounded-lg overflow-hidden shadow-sm border border-gray-200 ${sizeClasses[testimonial.size as keyof typeof sizeClasses]}`}
     >
       <div className="aspect-[4/3] relative overflow-hidden">
-        <img
+        <Image
           src={testimonial.image || "/placeholder.svg"}
           alt="Interior design project"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
       </div>
       <div className="p-6">
