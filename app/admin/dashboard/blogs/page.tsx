@@ -73,11 +73,8 @@ const mockBlogs: BlogPost[] = [
   }
 ];
 
-interface BlogsViewProps {
-  onOpenForm?: (formType: string) => void;
-}
-
-function page({ onOpenForm }: BlogsViewProps) {
+// Fixed: Component name must start with uppercase letter
+const BlogsPage = () => {
   const [selectedTab, setSelectedTab] = useState("published");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -106,6 +103,12 @@ function page({ onOpenForm }: BlogsViewProps) {
     return matchesSearch && matchesTab;
   });
 
+  // Fixed: Removed onOpenForm reference that doesn't exist
+  const handleAddNewBlog = () => {
+    // Handle add new blog logic here
+    console.log("Add new blog clicked");
+  };
+
   return (
     <div className="space-y-6">
       {/* Blog Management Card */}
@@ -133,12 +136,13 @@ function page({ onOpenForm }: BlogsViewProps) {
           </div>
         </CardContent>
       </Card>
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Blogs & Insights</h1>
           <p className="text-muted-foreground">Share your staging success stories and expertise</p>
         </div>
-        <Button onClick={() => onOpenForm?.("blog")}>
+        <Button onClick={handleAddNewBlog}>
           <Plus className="h-4 w-4 mr-2" />
           Add New Blog
         </Button>
@@ -249,7 +253,7 @@ function page({ onOpenForm }: BlogsViewProps) {
                 <p className="text-muted-foreground mb-4">
                   {searchTerm ? 'Try adjusting your search terms' : 'Create your first blog post to get started'}
                 </p>
-                <Button onClick={() => onOpenForm?.("blog")}>
+                <Button onClick={handleAddNewBlog}>
                   <Plus className="h-4 w-4 mr-2" />
                   Add New Blog
                 </Button>
@@ -258,11 +262,8 @@ function page({ onOpenForm }: BlogsViewProps) {
           )}
         </TabsContent>
       </Tabs>
-
-    
     </div>
   );
-}
+};
 
-
-export default page;
+export default BlogsPage;

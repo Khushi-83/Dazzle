@@ -5,7 +5,8 @@ import {
   Youtube,
   InstagramIcon,
 } from "lucide-react";
-import { Button, Input } from "./ui";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 export function Footer() {
   return (

@@ -102,7 +102,7 @@ export default function ContactPage() {
                   <div>Facebook {">>"}</div>
                   <div>Instagram {">>"}</div>
                   <div>Youtube {">>"}</div>
-                  <div>Pinterest {">>"}</div>
+                  <div>Pinterest {">>"}</div>  
                 </div>
               </div>
             </div>

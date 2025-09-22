@@ -58,15 +58,8 @@ const testimonials = [
   },
   {
     id: 5,
-    type: "photo",
-    image: "/monroe-silas.jpg",
-    author: "Monroe Silas",
-    location: "New York",
-  },
-  {
-    id: 6,
     type: "image",
-    image: "/luxury-hotel-lobby.jpg",
+    image: "/modern-hotel-lobby.jpg",
     source: "Google Review",
     rating: 5,
     text: "...the space feels like a slice of paradise...",
@@ -74,10 +67,10 @@ const testimonials = [
       "I needed a hotel design that felt luxurious but still approachable...",
     author: "Elias Monroe",
     location: "Hotel Owner in Miami",
-    authorPhoto: "/reviewer-6.jpg",
+    authorPhoto: "/reviewer-5.jpg",
   },
   {
-    id: 7,
+    id: 6,
     type: "image",
     image: "/modern-condo.jpg",
     source: "Google Review",
@@ -87,17 +80,10 @@ const testimonials = [
       "I wanted a home that matched my personality: sleek, modern, and functional...",
     author: "Finn Gallagher",
     location: "Developer in Austin",
-    authorPhoto: "/reviewer-7.jpg",
+    authorPhoto: "/reviewer-6.jpg",
   },
   {
-    id: 8,
-    type: "video",
-    image: "/testimonial-video-1.jpg",
-    author: "Aiden Locke",
-    location: "Fitness Studio Owner in Phoenix",
-  },
-  {
-    id: 9,
+    id: 7,
     type: "image",
     image: "/retail-store.jpg",
     source: "Google Review",
@@ -107,10 +93,10 @@ const testimonials = [
       "The retail store design completely transformed my business...",
     author: "Levi Morgan",
     location: "Retailer in Denver",
-    authorPhoto: "/reviewer-9.jpg",
+    authorPhoto: "/reviewer-7.jpg",
   },
   {
-    id: 10,
+    id: 8,
     type: "image",
     image: "/school-renovation.jpg",
     source: "Google Review",
@@ -120,17 +106,10 @@ const testimonials = [
       "Our school’s renovation was handled with such care and thoughtfulness...",
     author: "Rowan Blake",
     location: "Educator in Seattle",
-    authorPhoto: "/reviewer-10.jpg",
+    authorPhoto: "/reviewer-8.jpg",
   },
   {
-    id: 11,
-    type: "video",
-    image: "/testimonial-video-2.jpg",
-    author: "Hoffman F.",
-    location: "Owner, Miami Beach",
-  },
-  {
-    id: 12,
+    id: 9,
     type: "image",
     image: "/restaurant-interior.jpg",
     source: "Google Review",
@@ -140,7 +119,7 @@ const testimonials = [
       "I wanted my restaurant to feel like an extension of myself...",
     author: "Theo Hartman",
     location: "Restaurateur in Dallas",
-    authorPhoto: "/reviewer-12.jpg",
+    authorPhoto: "/reviewer-9.jpg",
   },
 ];
 
@@ -198,7 +177,7 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[0] }) {
   return (
     <div className="break-inside-avoid bg-[#F5F1ED] rounded-lg overflow-hidden shadow-sm border border-gray-200 flex flex-col">
       <div className="aspect-[4/3] relative">
-        <Image src={t.image} alt={t.text} fill className="object-cover" />
+        <Image src={t.image} alt={"something"} fill className="object-cover" />
       </div>
       <div className="p-6 flex flex-col flex-1">
         {/* Centered Source & Stars */}
