@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
 import "../globals.css";
-import { Clerk } from "@clerk/clerk-sdk-node";
-import { ClerkProvider } from "@clerk/nextjs";
 
 
 
@@ -19,12 +17,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-     
-        <html lang="en">
-            <body>
-                <main>{children}</main>
-            </body>
-        </html>
-      
+
+
+
+        <main>{children}</main>
+
+
+
     );
 }

@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #21201b;
   --button-primary: #3a2d28;
   --button-secondery: #cbad8d;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
@@ -33,7 +32,7 @@ body {
 
 .interFont {
   font-family: "Inter", sans-serif;
-  letter-spacing: 0.7;
+  letter-spacing: 0.07em;
 }
 
 .stepsButtonHover {
@@ -58,14 +57,17 @@ body {
 
 .stepsButtonHover span:nth-child(2) {
   display: inline-block;
-  max-width: 0; /* start hidden */
-  overflow: hidden; /* hide text until expanded */
+  max-width: 0;
+  /* start hidden */
+  overflow: hidden;
+  /* hide text until expanded */
   transition: max-width 0.5s ease-in-out;
 }
 
 .stepsButtonHover:hover span:nth-child(2) {
-  white-space: wrap;
-  max-width: 200px; /* expand smoothly */
+  white-space: normal;
+  max-width: 200px;
+  /* expand smoothly */
 }
 
 .btn-hover {
@@ -81,9 +83,9 @@ body {
 
 .btn-hover:hover p {
   position: absolute;
-  visibility: collapse;
+  visibility: hidden;
   transition: 0.6s;
   z-index: -1;
   width: fit-content;
-  text-wrap: nowrap;
+  white-space: nowrap;
 }

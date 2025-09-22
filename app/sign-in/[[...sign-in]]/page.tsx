@@ -14,7 +14,7 @@ export default function Page() {
                 </p>
                 <SignIn />
                 <p className="text-center mt-4 text-gray-600 p-4 shadow-xl w-full bg-white rounded-md">
-                    Don't have an account?{" "}
+                    Don't have an account?
                     <Link href="/sign-up" className="text-blue-600 font-semibold hover:underline">
                         Sign Up
                     </Link>
