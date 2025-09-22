@@ -1,43 +1,49 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+// app/middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { prisma } from "@/lib/prisma";
 
-const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
-const isUserRoute = createRouteMatcher([
-    "/storefront(.*)",
-    "/api/orders(.*)",
-    "/api/buy(.*)",
-    "/api/cart(.*)",
-]);
+export async function middleware(req: NextRequest) {
+    const url = req.nextUrl.clone();
+    const session = req.cookies.get("session")?.value;
 
-export default clerkMiddleware(async (auth, req) => {
-    // Ensure the user is signed in for protected routes
-    if (isAdminRoute(req) || isUserRoute(req)) {
-        await auth.protect();
+    if (!session) {
+        // No session, redirect to sign-in
+        url.pathname = "/sign-in";
+        return NextResponse.redirect(url);
     }
 
-    // Fetch session claims (includes metadata like roles)
-    const { sessionClaims } = auth();
-    const role = sessionClaims?.metadata?.role as "admin" | "user" | undefined;
-
-    // ✅ Admin routes check
-    if (isAdminRoute(req)) {
-        if (role !== "admin") {
-            return new Response("Unauthorized - Admins only", { status: 403 });
-        }
+    // Parse session JSON
+    let clerkId: string | null = null;
+    try {
+        const sessionData = JSON.parse(session);
+        clerkId = sessionData.clerkId;
+    } catch (err) {
+        console.error("Invalid session:", err);
+        url.pathname = "/sign-in";
+        return NextResponse.redirect(url);
     }
 
-    // ✅ User routes check
-    if (isUserRoute(req)) {
-        if (role !== "user" && role !== "admin") {
-            return new Response("Unauthorized - Users only", { status: 403 });
-        }
+    // Fetch user role
+    const user = await prisma.user.findUnique({ where: { clerkId } });
+    if (!user) {
+        url.pathname = "/sign-in";
+        return NextResponse.redirect(url);
     }
-});
+
+    // Role-based routing
+    if (req.nextUrl.pathname.startsWith("/admin") && user.role !== "ADMIN") {
+        url.pathname = "/unauthorized";
+        return NextResponse.redirect(url);
+    }
+
+    if (req.nextUrl.pathname.startsWith("/storefront") && user.role === "ADMIN") {
+        // Admins may access storefront too (optional)
+    }
+
+    return NextResponse.next();
+}
 
 export const config = {
-    matcher: [
-        // Skip Next.js internals and all static files, unless found in search params
-        "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-        // Always run for API routes
-        "/(api|trpc)(.*)",
-    ],
+    matcher: ["/admin/:path*", "/storefront/:path*"],
 };
