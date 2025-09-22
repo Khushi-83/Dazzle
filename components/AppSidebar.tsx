@@ -20,11 +20,12 @@ import {
     Settings
 } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import Link from "next/link"
 
 const items = [
     {
         title: "Dashboard",
-        url: "#",
+        url: "/admin/dashboard",
         icon: LayoutDashboard,
     },
     {
@@ -97,10 +98,10 @@ export function AppSidebar() {
                                     className={`text-neutral-300 hover:bg-neutral-700 hover:text-white ${index === 0 ? 'bg-neutral-700 text-white' : ''
                                         }`}
                                 >
-                                    <a href={item.url} className="flex items-center gap-3 px-3 py-2">
+                                    <Link href={item.url} className="flex items-center gap-3 px-3 py-2">
                                         <item.icon className="w-5 h-5" />
                                         <span>{item.title}</span>
-                                    </a>
+                                    </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                         ))}
