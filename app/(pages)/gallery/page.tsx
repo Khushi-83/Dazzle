@@ -1,52 +1,151 @@
+import Image from "next/image";
+
+interface Article {
+  id: number;
+  date: string;
+  category: string;
+  author: string;
+  title: string;
+  image: string;
+}
+
+const articles: Article[] = [
+  {
+    id: 1,
+    date: "DEC 5, 2024",
+    category: "TIPS",
+    author: "RYAN MILFORD",
+    title: "How to turn 'cozy' into 'wow': 5 Pro Tips for Making the Most of Small Spaces",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 2,
+    date: "DEC 5, 2024",
+    category: "DESIGN & INSPIRATION",
+    author: "JAMES MILLER",
+    title: "Turning Spaces into Stories: How We Create Meaningful Architecture",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 3,
+    date: "SEP 24, 2024",
+    category: "INDUSTRY INSIGHTS",
+    author: "JAMES MILLER",
+    title: "Retail Revolution: How Architecture Is Transforming Shopping Experiences",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 4,
+    date: "DEC 5, 2024",
+    category: "TIPS",
+    author: "RYAN MILFORD",
+    title: "Tiny but Mighty: 7 Genius Design Hacks for Compact Living",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 5,
+    date: "DEC 5, 2024",
+    category: "TIPS",
+    author: "RYAN MILFORD",
+    title: "From Chaos to Cozy: Tips to Turn Your Cramped Space into a Stylish Sanctuary",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 6,
+    date: "SEP 24, 2024",
+    category: "INDUSTRY INSIGHTS",
+    author: "JAMES MILLER",
+    title: "Skyline Trends: How Skyscrapers Are Redefining Urban Workspaces",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 7,
+    date: "DEC 5, 2024",
+    category: "INDUSTRY INSIGHTS",
+    author: "JAMES MILLER",
+    title: "Retail Spaces Reimagined: The Art of Creating Memorable Shopping Experiences",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 8,
+    date: "JUL 5, 2024",
+    category: "INDUSTRY INSIGHTS",
+    author: "JAMES MILLER",
+    title: "The Future of Office Design: Trends Shaping Workspaces of Tomorrow",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 9,
+    date: "DEC 5, 2024",
+    category: "DESIGN & INSPIRATION",
+    author: "JAMES MILLER",
+    title: "Beyond the Blueprint: Creative Ideas That Spark Architectural Magic",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 10,
+    date: "DEC 5, 2024",
+    category: "TIPS",
+    author: "RYAN MILFORD",
+    title: "Oops-Proof Your Dream Home: 6 Mistakes to Dodge in Architecture Design",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 11,
+    date: "DEC 5, 2024",
+    category: "DESIGN & INSPIRATION",
+    author: "JAMES MILLER",
+    title: "The Art of Balance: Mixing Modern and Timeless in Architecture",
+    image: "/images/gallery4.png",
+  },
+  {
+    id: 12,
+    date: "DEC 16, 2024",
+    category: "DESIGN & INSPIRATION",
+    author: "JAMES MILLER",
+    title: "The Art of Turning Dreams into Blueprints: How Inspiration Shapes Modern Architecture",
+    image: "/images/gallery4.png",
+  },
+];
+
+function GalleryCard({ article }: { article: Article }) {
+  return (
+    <div className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
+      <Image
+        src={article.image}
+        alt={article.title}
+        width={600}
+        height={400}
+        className="w-full h-64 object-cover"
+      />
+      <div className="p-4">
+        <div className="text-xs text-gray-600 flex flex-wrap items-center gap-2 mb-2">
+          <span>{article.date}</span>
+          <span className="uppercase bg-gray-200 px-2 py-0.5 rounded text-gray-800">
+            {article.category}
+          </span>
+          <span className="text-gray-700">{article.author}</span>
+        </div>
+        <h3 className="text-lg text-gray-900 leading-snug">
+          {article.title}
+        </h3>
+      </div>
+    </div>
+  );
+}
+
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen pt-8" style={{backgroundColor: '#FFFFFF'}}>
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4" style={{color: '#000000'}}>Our Gallery</h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{color: '#000000'}}>
-            ✨ Welcome to our stunning design gallery! Browse our latest projects and transformations.
-          </p>
-        </div>
-        
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Placeholder gallery items */}
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-            <div key={item} className="rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style={{backgroundColor: '#D1C7BD'}}>
-              <div className="aspect-square flex items-center justify-center" style={{backgroundColor: '#D1C7BD'}}>
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🏠</div>
-                  <span className="text-lg font-medium" style={{color: '#000000'}}>Project {item}</span>
-                </div>
-              </div>
-              <div className="p-6" style={{backgroundColor: '#D1C7BD'}}>
-                <h3 className="text-xl font-bold mb-3" style={{color: '#000000'}}>
-                  Amazing Design Project {item}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{color: '#000000'}}>
-                  Stunning transformation showcasing our expertise in modern design and exceptional craftsmanship. Each project tells a unique story.
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="font-semibold text-sm" style={{color: '#000000'}}>Completed 2024</span>
-                  <button className="transition-colors" style={{color: '#000000'}}>
-                    View Details →
-                  </button>
-                </div>
-              </div>
-            </div>
+    <div className="min-h-screen bg-white py-16">
+      <div className="container mx-auto px-6">
+        <h1 className="text-5xl text-center mb-12">Gallery</h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {articles.map((article) => (
+            <GalleryCard key={article.id} article={article} />
           ))}
-        </div>
-        
-        {/* Call to Action */}
-        <div className="text-center mt-16 p-8 rounded-xl" style={{backgroundColor: '#D1C7BD'}}>
-          <h2 className="text-2xl font-bold mb-4" style={{color: '#000000'}}>Ready to Start Your Project?</h2>
-          <p className="mb-6" style={{color: '#000000'}}>Let us help you create something beautiful</p>
-          <button className="text-white px-8 py-3 rounded-lg font-semibold transition-colors" style={{backgroundColor: '#3A2D28'}}>
-            Get Started Today
-          </button>
         </div>
       </div>
     </div>
-  )
+  );
 }
