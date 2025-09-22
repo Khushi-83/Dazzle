@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 
 import "../globals.css";
 
-
-
-
 export const metadata: Metadata = {
     title: "Dazzle - Dashboard",
     description:
@@ -17,12 +14,6 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-
-
-
         <main>{children}</main>
-
-
-
     );
 }
