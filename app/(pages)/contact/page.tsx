@@ -97,7 +97,7 @@ export default function ContactPage() {
                   Social Media
                 </h3>
                 <div className="space-y-2 text-stone-600">
-                  <div>X •</div>
+                  <div>X {">>"}</div>
                   <div>LinkedIn {">>"}</div>
                   <div>Facebook {">>"}</div>
                   <div>Instagram {">>"}</div>
