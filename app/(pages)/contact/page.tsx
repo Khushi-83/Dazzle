@@ -5,6 +5,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,16 +34,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 pt-8">
+    <div className="min-h-screen bg-stone-50 pt-8 font-hedvig">
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="aspect-video bg-stone-300 rounded-lg flex items-center justify-center shadow-sm">
-              <div className="text-stone-500 text-center">
-                <MapPin className="w-16 h-16 mx-auto mb-4" />
-                <p className="text-lg">Location Image</p>
-              </div>
+            {/* Replace MapPin with actual image */}
+            <div className="aspect-video bg-stone-300 rounded-lg overflow-hidden shadow-sm">
+              <Image
+                src="/images/gallery 3.png" // Update this path
+                alt="Location"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="space-y-6">
@@ -114,7 +119,7 @@ export default function ContactPage() {
               <p className="text-stone-600 leading-relaxed mb-6">
                 Got big plans but not sure where to start? Don&apos;t worry,
                 just share what&apos;s on your mind, and we&apos;ll handle the
-                rest!
+                rest. The sooner you fill this out, the sooner we can get started on something amazing!
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -133,7 +138,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("name", e.target.value)
                       }
-                      className="bg-[#F5F1ED] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
@@ -150,7 +155,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("phone", e.target.value)
                       }
-                      className="bg-[#F5F1ED] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200"
                     />
                   </div>
                 </div>
@@ -170,7 +175,7 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       handleInputChange("email", e.target.value)
                     }
-                    className="bg-[#F5F1ED] border-gray-200"
+                    className="bg-[#D1C7BD] border-gray-200"
                   />
                 </div>
 
@@ -179,7 +184,7 @@ export default function ContactPage() {
                     Preferred Contact Method
                   </label>
                   <select
-                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
+                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#D1C7BD] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       handleInputChange("preferredContact", e.target.value)
                     }
@@ -198,7 +203,7 @@ export default function ContactPage() {
                     User Type
                   </label>
                   <select
-                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
+                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#D1C7BD] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       handleInputChange("userType", e.target.value)
                     }
@@ -218,7 +223,7 @@ export default function ContactPage() {
                     Property Type
                   </label>
                   <select
-                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
+                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#D1C7BD] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       handleInputChange("propertyType", e.target.value)
                     }
@@ -247,7 +252,7 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       handleInputChange("propertyAddress", e.target.value)
                     }
-                    className="bg-[#F5F1ED] border-gray-200"
+                    className="bg-[#D1C7BD] border-gray-200"
                   />
                 </div>
 
@@ -266,7 +271,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("budget", e.target.value)
                       }
-                      className="bg-[#F5F1ED] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
@@ -283,7 +288,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("timeline", e.target.value)
                       }
-                      className="bg-[#F5F1ED] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200"
                     />
                   </div>
                 </div>
@@ -303,7 +308,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("startDate", e.target.value)
                       }
-                      className="bg-[#F5F1ED] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
@@ -320,7 +325,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("completionDate", e.target.value)
                       }
-                      className="bg-[#F5F1ED] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200"
                     />
                   </div>
                 </div>
@@ -330,7 +335,7 @@ export default function ContactPage() {
                     How Did You Hear About Us
                   </label>
                   <select
-                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#F5F1ED] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
+                    className="flex h-9 w-full rounded-md border border-gray-200 bg-[#D1C7BD] px-3 py-1 text-sm shadow-sm focus:border-black focus:outline-none text-gray-900"
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       handleInputChange("hearAbout", e.target.value)
                     }
@@ -360,7 +365,7 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                       handleInputChange("message", e.target.value)
                     }
-                    className="bg-stone-50 border-stone-200 min-h-[120px]"
+                    className="bg-[#D1C7BD] border-stone-200 min-h-[120px]"
                   />
                 </div>
 

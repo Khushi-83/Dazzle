@@ -3,11 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronsRight } from "lucide-react";
+import { ChevronDown, ChevronsRight, Search, ShoppingCart } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigationItems = [
     { name: "Home", href: "/" },
@@ -28,19 +29,22 @@ export default function Header() {
     }
   };
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Searching for:", searchQuery);
+    // TODO: Add your actual search logic here
+  };
+
   return (
     <header className="w-full bg-white px-6 py-2 border-b-1 border-stone-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
         {/* Logo */}
         <div className="flex items-center">
           <div className="flex items-center space-x-2">
-            {/* Logo icon - stylized sunburst */}
             <div className="w-8 h-8 relative">
               <svg viewBox="0 0 32 32" className="w-full h-full text-gray-800">
                 <g fill="currentColor">
-                  {/* Center circle */}
                   <circle cx="16" cy="16" r="2" />
-                  {/* Radiating lines */}
                   <path
                     d="M16 4 L16 8 M16 24 L16 28 M28 16 L24 16 M8 16 L4 16"
                     stroke="currentColor"
@@ -63,7 +67,7 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center  md:gap-2">
+        <nav className="hidden md:flex items-center md:gap-2">
           {navigationItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -89,7 +93,7 @@ export default function Header() {
                   <Link href={item.href}>
                     <button
                       onClick={() => handleNavClick(item.name)}
-                      className={`flex items-center  px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
+                      className={`flex items-center px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
                         isActive
                           ? "bg-[var(--button-secondery)] "
                           : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
@@ -99,41 +103,42 @@ export default function Header() {
                     </button>
                   </Link>
                 )}
-
-                {/* Services dropdown */}
               </div>
             );
           })}
         </nav>
 
-        {/* Book Now Button */}
-        <button className="flex p-1 h-10 w-auto min-w-[160px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
-          <span className="arrow bg-[var(--button-primary)] inline-flex h-full w-1/4 rounded-sm justify-center items-center">
-            <ChevronsRight size={20} color="#ffffff" />
-          </span>
-          <p className="text-[var(--foreground)] text-md">Book Now</p>
-        </button>
+        {/* Search + Sign In + Cart */}
+<div className="hidden md:flex items-center gap-4">
+  {/* Search Bar */}
+  <form onSubmit={handleSearch} className="relative">
+    <input
+      type="text"
+      placeholder="Search"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="w-50 bg-gray-200 text-gray-700 text-sm rounded-md pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400"
+    />
+    <Search className="absolute left-2.5 top-2.5 w-4 h-4 text-gray-600" />
+  </form>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden p-2 text-gray-600 hover:text-gray-900"
-          aria-label="Open mobile menu"
-          title="Open menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+  {/* Sign In Button */}
+  <Link
+    href="/signin"
+    className="px-5 py-2 bg-[#3A2D28] text-white text-sm rounded-md hover:bg-[#3c2d26] transition"
+  >
+    Sign in
+  </Link>
+
+  {/* Cart Icon */}
+  <button
+    aria-label="View cart"
+    className="p-2 hover:opacity-80 transition"
+  >
+    <ShoppingCart className="w-5 h-5 text-black" />
+  </button>
+</div>
+
       </div>
     </header>
   );

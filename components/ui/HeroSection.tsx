@@ -2,6 +2,7 @@
 import { useRef, useEffect } from "react";
 import { ChevronsRight } from "lucide-react";
 import { gsap } from "gsap";
+import Link from "next/link";
 
 const HeroSection = () => {
   const textRef = useRef(null);
@@ -40,19 +41,19 @@ const HeroSection = () => {
           ref={buttonsRef}
           className="flex py-8 justify-center gap-10 min-w-1/2 my-4 mx-auto"
         >
-          <button className="btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
+          <Link href="/contact" className="btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
             <span className="arrow bg-[var(--button-secondery)] inline-flex h-full w-1/5 rounded-sm justify-center items-center">
               <ChevronsRight size={20} />
             </span>
             <p className="text-white text-md">Book a Free Consult</p>
-          </button>
+          </Link>
 
-          <button className=" btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
+          <Link href="/services" className=" btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
             <span className="arrow bg-[var(--button-primary)] inline-flex h-full w-1/5 rounded-sm justify-center items-center">
               <ChevronsRight size={20} color="#ffffff" />
             </span>
             <p className="text-[var(--foreground)] text-md">Browse Services</p>
-          </button>
+          </Link>
         </div>
       </div>
 
