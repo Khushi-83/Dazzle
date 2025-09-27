@@ -8,10 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <ClerkProvider
-            afterSignInUrl={undefined}
-            afterSignUpUrl={undefined}
-        >
+        <ClerkProvider>
             <html lang="en">
                 <body>
                     {children}
