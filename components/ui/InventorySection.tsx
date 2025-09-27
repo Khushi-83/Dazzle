@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 const InventorySection = () => {
   const products = [
@@ -58,9 +59,9 @@ const InventorySection = () => {
         <h2 className="text-6xl font-medium text-white">
           Explore our Inventory
         </h2>
-        <button className="px-5 py-2 bg-[#dbc2a4] rounded-sm text-[#3d302a] hover:opacity-90 transition">
+        <Link href="/storefront" className="px-5 py-2 bg-[#dbc2a4] rounded-sm text-[#3d302a] hover:bg-[#c9b392] hover:text-[#2a221e] transition-colors duration-300">
           See All
-        </button>
+        </Link>
       </div>
 
       {/* Product Cards */}

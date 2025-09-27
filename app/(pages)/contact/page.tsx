@@ -39,10 +39,9 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Info */}
           <div className="space-y-8">
-            {/* Replace MapPin with actual image */}
             <div className="aspect-video bg-stone-300 rounded-lg overflow-hidden shadow-sm">
               <Image
-                src="/images/gallery 3.png" // Update this path
+                src="/images/gallery 3.png"
                 alt="Location"
                 width={600}
                 height={400}
@@ -52,10 +51,10 @@ export default function ContactPage() {
 
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-stone-800 mb-4">
+                <h2 className="text-bold-2xl font-bold text-stone-900 mb-4">
                   Contact Us
                 </h2>
-                <p className="text-stone-600 leading-relaxed">
+                <p className="text-stone-700 leading-relaxed">
                   Your perfect project won&apos;t build itself but we can help!
                   Contact us today and let&apos;s bring your vision to life.
                 </p>
@@ -138,7 +137,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("name", e.target.value)
                       }
-                      className="bg-[#D1C7BD] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200 placeholder-stone-500"
                     />
                   </div>
                   <div className="space-y-2">
@@ -155,7 +154,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("phone", e.target.value)
                       }
-                      className="bg-[#D1C7BD] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200 placeholder-stone-500"
                     />
                   </div>
                 </div>
@@ -175,7 +174,7 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       handleInputChange("email", e.target.value)
                     }
-                    className="bg-[#D1C7BD] border-gray-200"
+                    className="bg-[#D1C7BD] border-gray-200 placeholder-stone-500"
                   />
                 </div>
 
@@ -252,7 +251,7 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       handleInputChange("propertyAddress", e.target.value)
                     }
-                    className="bg-[#D1C7BD] border-gray-200"
+                    className="bg-[#D1C7BD] border-gray-200 placeholder-stone-500"
                   />
                 </div>
 
@@ -271,7 +270,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("budget", e.target.value)
                       }
-                      className="bg-[#D1C7BD] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200 placeholder-stone-500"
                     />
                   </div>
                   <div className="space-y-2">
@@ -288,7 +287,7 @@ export default function ContactPage() {
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         handleInputChange("timeline", e.target.value)
                       }
-                      className="bg-[#D1C7BD] border-gray-200"
+                      className="bg-[#D1C7BD] border-gray-200 placeholder-stone-500"
                     />
                   </div>
                 </div>
@@ -365,7 +364,7 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                       handleInputChange("message", e.target.value)
                     }
-                    className="bg-[#D1C7BD] border-stone-200 min-h-[120px]"
+                    className="bg-[#D1C7BD] border-stone-200 min-h-[120px] placeholder-stone-500"
                   />
                 </div>
 

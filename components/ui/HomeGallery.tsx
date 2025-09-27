@@ -1,6 +1,7 @@
 import { ChevronsRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const HomeGallery = () => {
   return (
@@ -74,12 +75,12 @@ const HomeGallery = () => {
               big project!
             </h2>
 
-            <button className="flex p-1 h-12 w-[200px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
-              <span className="arrow bg-[var(--button-secondery)] inline-flex h-full w-1/6 rounded-sm justify-center items-center">
+            <Link href="/gallery" className="btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
+              <span className="arrow bg-[var(--button-secondery)] inline-flex h-full w-1/5 rounded-sm justify-center items-center">
                 <ChevronsRight size={20} />
               </span>
               <p className="text-white text-md">Browse Gallery</p>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

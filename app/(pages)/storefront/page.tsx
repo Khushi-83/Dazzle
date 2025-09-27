@@ -43,8 +43,8 @@ export default function HomePage() {
 
       {/* Categories */}
       <section className="py-10">
-        <h2 className="text-center text-3xl font-semibold mb-8">Categories</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6 max-w-6xl mx-auto">
+        <h2 className="text-center text-2xl sm:text-3xl font-semibold mb-8">Categories</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 px-4 sm:px-6 max-w-6xl mx-auto">
           {categories.map((cat, i) => (
             <CategoryCard key={i} {...cat} />
           ))}
@@ -53,7 +53,7 @@ export default function HomePage() {
 
       {/* Mid Section */}
       <section className="relative bg-gray-100 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto px-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto px-4 sm:px-6">
           {midCategories.map((cat, i) => (
             <MidCategoryCard key={i} {...cat} />
           ))}
@@ -61,12 +61,14 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section className="flex gap-6 max-w-7xl mx-auto px-6 py-12">
-        {/* Sidebar */}
-        <FilterSidebar />
+      <section className="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        {/* Sidebar - moves to top on mobile */}
+        <div className="lg:w-1/4 w-full lg:order-none order-first">
+          <FilterSidebar />
+        </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 flex-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
           {products.map((p, i) => (
             <ProductCard key={i} {...p} />
           ))}
@@ -75,4 +77,3 @@ export default function HomePage() {
     </div>
   );
 }
-

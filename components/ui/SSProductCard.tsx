@@ -17,7 +17,7 @@ export default function SSProductCard({
   stock = "In Stock",
 }: ProductCardProps) {
   return (
-    <div className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white relative">
+    <div className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white relative h-full flex flex-col">
       {/* Image Section */}
       <div className="relative">
         <Image
@@ -25,15 +25,15 @@ export default function SSProductCard({
           alt={name}
           width={400}
           height={300}
-          className="object-cover w-full h-64"
+          className="object-cover w-full h-48 sm:h-56 md:h-64"
         />
 
         {/* Top-left icons */}
         <div className="absolute top-2 left-2 flex flex-col gap-2">
-          <button className="bg-black/50 hover:bg-black text-white p-2 rounded-md">
+          <button className="bg-black/50 hover:bg-black text-white p-2 rounded-md" aria-label="Add to cart">
             <ShoppingCart size={16} />
           </button>
-          <button className="bg-black/50 hover:bg-black text-white p-2 rounded-md">
+          <button className="bg-black/50 hover:bg-black text-white p-2 rounded-md" aria-label="Add to wishlist">
             <Heart size={16} />
           </button>
         </div>
@@ -50,9 +50,9 @@ export default function SSProductCard({
       </div>
 
       {/* Content Section */}
-      <div className="p-4">
+      <div className="p-4 flex-grow flex flex-col">
         <h4 className="font-semibold text-lg">{name}</h4>
-        <p className="text-sm text-gray-600">{desc}</p>
+        <p className="text-sm text-gray-600 flex-grow">{desc}</p>
         <p className="mt-2 font-bold text-lg">{price}</p>
       </div>
     </div>

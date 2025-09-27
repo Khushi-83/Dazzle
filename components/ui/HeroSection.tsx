@@ -34,21 +34,21 @@ const HeroSection = () => {
   return (
     <div className="min-h-[150vh] md:min-h-[130vh] flex justify-center  relative py-20 items-center">
       <div >
-        <h1 ref={textRef} className="font-medium text-8xl space-x-0.5">
+        <h1 ref={textRef} className="font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl space-x-0.5">
           Style. Staged. Sold
         </h1>
         <div
           ref={buttonsRef}
-          className="flex py-8 justify-center gap-10 min-w-1/2 my-4 mx-auto"
+          className="flex flex-col sm:flex-row py-8 justify-center gap-4 sm:gap-10 min-w-1/2 my-4 mx-auto"
         >
-          <Link href="/contact" className="btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
+          <Link href="/contact" className="btn-hover flex p-1 h-12 w-full sm:w-[220px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
             <span className="arrow bg-[var(--button-secondery)] inline-flex h-full w-1/5 rounded-sm justify-center items-center">
               <ChevronsRight size={20} />
             </span>
             <p className="text-white text-md">Book a Free Consult</p>
           </Link>
 
-          <Link href="/services" className=" btn-hover flex p-1 h-12 w-[220px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
+          <Link href="/services" className=" btn-hover flex p-1 h-12 w-full sm:w-[220px] items-center gap-4 bg-[var(--background)] rounded-sm border border-gray-400">
             <span className="arrow bg-[var(--button-primary)] inline-flex h-full w-1/5 rounded-sm justify-center items-center">
               <ChevronsRight size={20} color="#ffffff" />
             </span>

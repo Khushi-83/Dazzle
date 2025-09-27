@@ -4,6 +4,7 @@ import { ChevronsRight, PlayCircleIcon } from "lucide-react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,28 +38,28 @@ const WelcomeSection = () => {
   return (
     <div
       ref={sectionRef}
-      className="py-20 px-15 min-h-[220vh] flex flex-col justify-between second-section"
+      className="py-12 sm:py-20 px-4 sm:px-15 min-h-screen sm:min-h-[220vh] flex flex-col justify-between second-section"
     >
-      <h2 ref={headingRef} className="text-3xl text-center font-[500]">
+      <h2 ref={headingRef} className="text-2xl sm:text-3xl text-center font-[500] mb-8 sm:mb-0">
         Welcome to Dazzle Staging and Design At Dazzle, we&apos;re your all-in-one
         partner for making every property shine.
       </h2>
 
-      <div className="flex justify-between gap-52">
+      <div className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-52">
         {/* video section */}
         <div ref={videoRef} className="flex-1 flex flex-col justify-end">
-          <div className="video-outer bg-[#EEEAE5] w-full h-[170px] rounded-md p-2 flex gap-5">
+          <div className="video-outer bg-[#EEEAE5] w-full h-[150px] sm:h-[170px] rounded-md p-2 flex flex-col sm:flex-row gap-4 sm:gap-5">
             {/* video section play */}
             <div className="flex-1 rounded-md overflow-hidden relative">
               <Image
                 src={"/images/2nd sec.png"}
                 width={500}
                 height={500}
-                className="w-full h-full"
+                className="w-full h-full object-cover"
                 alt="video-image"
               />
               <PlayCircleIcon
-                size={50}
+                size={40}
                 className="absolute z-30 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               />
             </div>
@@ -67,15 +68,15 @@ const WelcomeSection = () => {
               ref={textRef}
               className="flex-1 flex justify-center items-center"
             >
-              <p>Take a glimpse into our world of creativity and innovation.</p>
+              <p className="text-sm sm:text-base">Take a glimpse into our world of creativity and innovation.</p>
             </div>
           </div>
         </div>
 
         {/* about section */}
         <div className="flex-1">
-          <div className="flex flex-col gap-10" ref={buttonRef}>
-            <p className="text-justify">
+          <div className="flex flex-col gap-6 sm:gap-10" ref={buttonRef}>
+            <p className="text-justify text-sm sm:text-base">
               At Dazzle, we&apos;re your all-in-one partner for making every property
               shine. Whether it&apos;s a home for sale, a rental ready for market, an
               Airbnb set to wow guests, or a dream space in need of a fresh new
@@ -88,12 +89,12 @@ const WelcomeSection = () => {
             </p>
 
             <div>
-              <button className="flex p-1 h-12 w-[250px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
-                <span className="arrow bg-[var(--button-secondery)] inline-flex h-full w-1/6 rounded-sm justify-center items-center">
+              <Link href="/meet-the-team" className="btn-hover flex p-1 h-12 w-full sm:w-[220px] items-center gap-4 bg-[var(--button-primary)] rounded-sm">
+                <span className="arrow bg-[var(--button-secondery)] inline-flex h-full w-1/5 rounded-sm justify-center items-center">
                   <ChevronsRight size={20} />
                 </span>
                 <p className="text-white text-md">Know About Us</p>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

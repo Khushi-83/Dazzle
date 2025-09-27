@@ -7,7 +7,7 @@ const testimonials = [
   {
     id: 1,
     type: "image",
-    image: "/modern-bakery-interior.jpg",
+    image: "/gallery/pexels-falling4utah-2724749.jpg",
     source: "Google Review",
     rating: 5,
     text: "...better than anything I imagined...",
@@ -15,12 +15,12 @@ const testimonials = [
       "When I first walked into my new bakery, I was speechless. The design team turned my vague dreams into a reality that's better than anything I had imagined.",
     author: "Oliver Dempsey",
     location: "Artisan Baker from Portland",
-    authorPhoto: "/reviewer-1.jpg",
+    authorPhoto: "/images/man1.jpg",
   },
   {
     id: 2,
     type: "image",
-    image: "/modern-minimalist-living-room.jpg",
+    image: "/gallery/pexels-fotoaibe-1571463.jpg",
     source: "Facebook Review",
     rating: 5,
     text: "...they gave me a sanctuary...",
@@ -28,12 +28,12 @@ const testimonials = [
       "My studio is now my favorite place on Earth, thanks to these brilliant designers.",
     author: "Silas Hoffman",
     location: "Photographer in San Francisco",
-    authorPhoto: "/reviewer-2.jpg",
+    authorPhoto: "/images/man2.jpeg",
   },
   {
     id: 3,
     type: "image",
-    image: "/modern-office-space.jpg",
+    image: "/gallery/pexels-fotoaibe-1571471.jpg",
     source: "Live Review",
     rating: 5,
     text: "...It's vibrant, collaborative, and inspiring...",
@@ -41,12 +41,12 @@ const testimonials = [
       "The office space they created for my startup is nothing short of extraordinary.",
     author: "Caleb Sutton",
     location: "Entrepreneur in Chicago",
-    authorPhoto: "/reviewer-3.jpg",
+    authorPhoto: "/images/man3.jpg",
   },
   {
     id: 4,
     type: "image",
-    image: "/modern-cafe-interior.jpg",
+    image: "/gallery/pexels-fotoaibe-1669799.jpg",
     source: "Live Review",
     rating: 5,
     text: "...they crafted a community hub...",
@@ -54,12 +54,12 @@ const testimonials = [
       "The team didn’t just build a café for me; they crafted a community hub...",
     author: "Wyatt Kingsley",
     location: "Coffee Roaster from Brooklyn",
-    authorPhoto: "/reviewer-4.jpg",
+    authorPhoto: "/images/man4.jpg",
   },
   {
     id: 5,
     type: "image",
-    image: "/modern-hotel-lobby.jpg",
+    image: "/gallery/pexels-jvdm-1457842.jpg",
     source: "Google Review",
     rating: 5,
     text: "...the space feels like a slice of paradise...",
@@ -67,12 +67,12 @@ const testimonials = [
       "I needed a hotel design that felt luxurious but still approachable...",
     author: "Elias Monroe",
     location: "Hotel Owner in Miami",
-    authorPhoto: "/reviewer-5.jpg",
+    authorPhoto: "/images/man1.jpg",
   },
   {
     id: 6,
     type: "image",
-    image: "/modern-condo.jpg",
+    image: "/gallery/pexels-pixabay-259962.jpg",
     source: "Google Review",
     rating: 5,
     text: "...My condo now feels like a tech haven...",
@@ -80,12 +80,12 @@ const testimonials = [
       "I wanted a home that matched my personality: sleek, modern, and functional...",
     author: "Finn Gallagher",
     location: "Developer in Austin",
-    authorPhoto: "/reviewer-6.jpg",
+    authorPhoto: "/images/man2.jpeg",
   },
   {
     id: 7,
     type: "image",
-    image: "/retail-store.jpg",
+    image: "/gallery/pexels-pixabay-276724.jpg",
     source: "Google Review",
     rating: 5,
     text: "...my customers now stay longer and shop more...",
@@ -93,12 +93,12 @@ const testimonials = [
       "The retail store design completely transformed my business...",
     author: "Levi Morgan",
     location: "Retailer in Denver",
-    authorPhoto: "/reviewer-7.jpg",
+    authorPhoto: "/images/man3.jpg",
   },
   {
     id: 8,
     type: "image",
-    image: "/school-renovation.jpg",
+    image: "/gallery/pexels-pixasquare-1115804.jpg",
     source: "Google Review",
     rating: 5,
     text: "...they redefined how education can happen...",
@@ -106,12 +106,12 @@ const testimonials = [
       "Our school’s renovation was handled with such care and thoughtfulness...",
     author: "Rowan Blake",
     location: "Educator in Seattle",
-    authorPhoto: "/reviewer-8.jpg",
+    authorPhoto: "/images/man4.jpg",
   },
   {
     id: 9,
     type: "image",
-    image: "/restaurant-interior.jpg",
+    image: "/gallery/pexels-saviesa-home-1098995-2089696.jpg",
     source: "Google Review",
     rating: 5,
     text: "...they come for the vibe...",
@@ -119,7 +119,7 @@ const testimonials = [
       "I wanted my restaurant to feel like an extension of myself...",
     author: "Theo Hartman",
     location: "Restaurateur in Dallas",
-    authorPhoto: "/reviewer-9.jpg",
+    authorPhoto: "/images/man1.jpg",
   },
 ];
 
@@ -141,46 +141,57 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function TestimonialCard({ t }: { t: (typeof testimonials)[0] }) {
-  if (t.type === "photo") {
+  if (t.type === "image") {
     return (
-      <div className="break-inside-avoid bg-[#F5F1ED] rounded-lg shadow-sm border border-gray-200 flex flex-col items-center p-8 text-center">
-        <div className="w-28 h-28 rounded-full overflow-hidden mb-4">
-          <Image src={t.image} alt={t.author} width={112} height={112} />
+      <div className="break-inside-avoid bg-[#F5F1ED] rounded-lg shadow-sm border border-gray-200 flex flex-col">
+        <div className="aspect-[4/3] relative">
+          <Image src={t.image} alt={t.author} fill className="object-cover" />
         </div>
-        <h3 className="font-serif text-lg text-gray-900">{t.author}</h3>
-        <p className="text-sm text-gray-600">{t.location}</p>
+        <div className="p-6 flex flex-col flex-1">
+          {/* Centered Source & Stars */}
+          {t.source && (
+            <p className="text-xs uppercase tracking-wide text-gray-500 text-center mb-1">
+              {t.source}
+            </p>
+          )}
+          {t.rating > 0 && <StarRating rating={t.rating} />}
+          {t.text && (
+            <blockquote className="text-gray-900 text-lg font-serif text-center leading-snug mb-3">
+              {t.text}
+            </blockquote>
+          )}
+          {t.fullText && (
+            <p className="text-gray-700 text-sm leading-relaxed text-center mb-5">
+              {t.fullText}
+            </p>
+          )}
+          {/* Reviewer info with photo at bottom */}
+          <div className="mt-auto flex items-center justify-center gap-3 pt-4 border-t border-gray-200">
+            {t.authorPhoto && (
+              <div className="w-10 h-10 rounded-full overflow-hidden">
+                <Image
+                  src={t.authorPhoto}
+                  alt={t.author}
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div className="text-left">
+              <p className="font-medium text-gray-800 text-sm">{t.author}</p>
+              <p className="text-xs text-gray-600">{t.location}</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
-  if (t.type === "video") {
-    return (
-      <div className="break-inside-avoid relative rounded-lg overflow-hidden">
-        <Image
-          src={t.image}
-          alt={t.author}
-          width={600}
-          height={400}
-          className="object-cover w-full"
-        />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-          <Play className="w-12 h-12 text-white" />
-        </div>
-        <div className="bg-[#F5F1ED] p-4 text-center">
-          <p className="font-medium text-sm text-gray-800">{t.author}</p>
-          <p className="text-xs text-gray-600">{t.location}</p>
-        </div>
-      </div>
-    );
-  }
-
+  // Fallback for any other types
   return (
-    <div className="break-inside-avoid bg-[#F5F1ED] rounded-lg overflow-hidden shadow-sm border border-gray-200 flex flex-col">
-      <div className="aspect-[4/3] relative">
-        <Image src={t.image} alt={"something"} fill className="object-cover" />
-      </div>
+    <div className="break-inside-avoid bg-[#F5F1ED] rounded-lg shadow-sm border border-gray-200 flex flex-col">
       <div className="p-6 flex flex-col flex-1">
-        {/* Centered Source & Stars */}
         {t.source && (
           <p className="text-xs uppercase tracking-wide text-gray-500 text-center mb-1">
             {t.source}
@@ -197,12 +208,11 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[0] }) {
             {t.fullText}
           </p>
         )}
-        {/* Reviewer info with photo at bottom */}
         <div className="mt-auto flex items-center justify-center gap-3 pt-4 border-t border-gray-200">
           {t.authorPhoto && (
             <div className="w-10 h-10 rounded-full overflow-hidden">
               <Image
-                src={t.authorPhoto}
+                src={t.authorPhoto || "/images/default-avatar.png"}
                 alt={t.author}
                 width={40}
                 height={40}
@@ -225,15 +235,15 @@ export default function TestimonialsPage() {
     <div className="bg-white">
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center pt-16 pb-12 px-4">
-        <h1 className="text-5xl font-serif mb-6 text-gray-900">Testimonials</h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+        <h1 className="text-4xl sm:text-5xl font-serif mb-6 text-gray-900">Testimonials</h1>
+        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
           Our greatest achievements aren’t just our projects—they’re the
           relationships and trust we’ve built along the way.
         </p>
       </div>
 
       {/* Masonry Grid */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 pb-16">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {testimonials.map((t) => (
             <TestimonialCard key={t.id} t={t} />
