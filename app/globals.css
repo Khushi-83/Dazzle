@@ -1,105 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
-
 @import "tailwindcss";
 
-@import "tw-animate-css";
-
-
+/* Your custom CSS below */
 :root {
   --button-primary: #3a2d28;
-  --button-secondery: #cbad8d;
+  --button-secondary: #cbad8d;
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  --background: #EEEAE5;
+  --foreground: #3A2D28;
+  --card: #ffffff;
+  --card-foreground: #3A2D28;
+  --popover: #ffffff;
+  --popover-foreground: #3A2D28;
+
+  --primary: #8F7456;
+  --primary-foreground: #EEEAE5;
+  --secondary: #D1C7BD;
+  --secondary-foreground: #3A2D28;
+  --muted: #D1D0CB;
+  --muted-foreground: #6B6361;
+  --accent: #CBAD8D;
+  --accent-foreground: #3A2D28;
+  --destructive: #d4183d;
+  --border: #D1C7BD;
+  --input: transparent;
+  --input-background: #EBE3DB;
+  --switch-background: #AAA39D;
+  --ring: #8F7456;
+
+  --chart-1: #8F7456;
+  --chart-2: #CBAD8D;
+  --chart-3: #6B6361;
+  --chart-4: #AAA39D;
+  --chart-5: #D1C7BD;
+
+  --sidebar: #3A2D28;
+  --sidebar-foreground: #EEEAE5;
+  --sidebar-primary: #8F7456;
+  --sidebar-primary-foreground: #EEEAE5;
+  --sidebar-accent: #6B6361;
+  --sidebar-accent-foreground: #EEEAE5;
+  --sidebar-border: #6B6361;
+  --sidebar-ring: #8F7456;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+/* Dark theme */
+.dark {
+  --background: #1A1A1A;
+  --foreground: #EEEAE5;
+  --card: #2C2C2C;
+  --card-foreground: #EEEAE5;
+  --popover: #2C2C2C;
+  --popover-foreground: #EEEAE5;
+
+  --primary: #8F7456;
+  --primary-foreground: #EEEAE5;
+  --secondary: #555555;
+  --secondary-foreground: #EEEAE5;
+  --muted: #444444;
+  --muted-foreground: #DDD;
+  --accent: #CBAD8D;
+  --accent-foreground: #EEEAE5;
+  --destructive: #d4183d;
+  --border: #555555;
+  --input: #333333;
+  --ring: #8F7456;
+
+  --sidebar: #1A1A1A;
+  --sidebar-foreground: #EEEAE5;
+  --sidebar-primary: #8F7456;
+  --sidebar-primary-foreground: #EEEAE5;
+  --sidebar-accent: #555555;
+  --sidebar-accent-foreground: #EEEAE5;
+  --sidebar-border: #555555;
+  --sidebar-ring: #8F7456;
 }
 
+/* Base body styles */
 body {
   font-family: "Hedvig Letters Serif", serif;
-  font-optical-sizing: auto;
+  font-size: 16px;
   font-weight: 400;
-  font-style: normal;
+  line-height: 1.5;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* second-section bg */
+/* Typography */
+h1 { 
+  font-weight: 500; 
+  font-size: 2rem; 
+  line-height: 1.5; 
+}
+
+h2 { 
+  font-weight: 500; 
+  font-size: 1.75rem; 
+  line-height: 1.5; 
+}
+
+h3 { 
+  font-weight: 500; 
+  font-size: 1.5rem; 
+  line-height: 1.5; 
+}
+
+h4 { 
+  font-weight: 500; 
+  font-size: 1.25rem; 
+  line-height: 1.5; 
+}
+
+p, label, input { 
+  font-weight: 400; 
+  font-size: 1rem; 
+  line-height: 1.5; 
+}
+
+button { 
+  font-weight: 500; 
+  font-size: 1rem; 
+  line-height: 1.5; 
+}
+
+/* Utility classes */
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border-radius: var(--radius);
+}
+
+.popover {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border-radius: var(--radius);
+}
+
+/* Background images */
 .second-section {
   background-image: url("/images/2nd sec.png");
-  background-size: 1500px;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+/* Fonts helpers */
 .interFont {
   font-family: "Inter", sans-serif;
-  letter-spacing: 0.7;
+  letter-spacing: 0.7px;
 }
 
+/* Buttons with hover animation */
 .stepsButtonHover {
   min-width: 50px;
   max-width: 150px;
@@ -107,34 +159,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
   gap: 10px;
+  overflow: hidden;
   font-family: "Inter", sans-serif;
+  transition: all 0.5s ease-in-out;
 }
 
-.stepsButtonHover span:nth-child(1) {
+.stepsButtonHover span:first-child {
   white-space: nowrap;
-  display: inline-block;
-  margin: auto;
 }
 
-.stepsButtonHover span:nth-child(2) {
+.stepsButtonHover span:last-child {
   display: inline-block;
-  max-width: 0; /* start hidden */
-  overflow: hidden; /* hide text until expanded */
+  max-width: 0;
+  overflow: hidden;
   transition: max-width 0.5s ease-in-out;
 }
 
-.stepsButtonHover:hover span:nth-child(2) {
-  white-space: wrap;
-  max-width: 200px; /* expand smoothly */
+.stepsButtonHover:hover span:last-child {
+  max-width: 200px;
 }
 
+/* Generic hover button */
 .btn-hover {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   transition: 0.6s;
 }
 
@@ -145,43 +194,23 @@ body {
 
 .btn-hover:hover p {
   position: absolute;
-  visibility: collapse;
+  visibility: hidden;
   transition: 0.6s;
   z-index: -1;
-  width: fit-content;
-  text-wrap: nowrap;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+/* Input and card styling */
+input, select, textarea {
+  background-color: var(--input-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ring) 50%, transparent);
 }

@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Link from "next/link";
 import { SignIn } from '@clerk/nextjs'
 
 export default function Page() {

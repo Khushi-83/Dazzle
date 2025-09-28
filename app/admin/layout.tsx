@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import "./admin.css";
+//import "./admin.css";
 import { Sidebar, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { DashboardNav } from "@/components/DashboardNav";
